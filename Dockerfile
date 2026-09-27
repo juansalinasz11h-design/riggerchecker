@@ -1,5 +1,4 @@
 FROM python:3.12-slim
 WORKDIR /app
-COPY . .
-RUN chmod +x start.sh
-CMD ["bash", "start.sh"]
+COPY index.html .
+CMD ["sh", "-c", "python -m http.server ${PORT:-8080} --bind 0.0.0.0"]
